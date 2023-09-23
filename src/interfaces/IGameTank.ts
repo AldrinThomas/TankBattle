@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import IGameBullet from './IGameBullet';
 interface IGameTank {
     velocity: number;
     direction: string;

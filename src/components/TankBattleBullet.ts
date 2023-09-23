@@ -7,12 +7,14 @@ export default class TankbattleBullet implements IGameBullet {
     body: Graphics;
     damage: number;
     velocity: number;
+
     constructor(direction: string, damage: number) {
         this.direction = direction;
         this.damage = damage;
         this.velocity = 10;
         this._setBody();
     }
+
     update(delta: number): void {
         switch (this.direction) {
             case "ArrowUp":
@@ -29,6 +31,7 @@ export default class TankbattleBullet implements IGameBullet {
                 break;
         }
     }
+
     private _setBody(): void {
         this.body = new Graphics();
         this.body.beginFill(Utils.BULLET_COLOR);

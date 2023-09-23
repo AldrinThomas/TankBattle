@@ -20,7 +20,6 @@ export default class TankBattleMap extends PIXI.Container {
         this.unassignedCells = [];
         this._createCellBlocksForMap();
         EventManager.getInstance().addListner("removeCell", this._removeCell.bind(this));
-
     }
 
     public assignRandomCellForTank(tank: IGameTank) {

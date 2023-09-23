@@ -7,6 +7,7 @@ export default class GreenTank extends BattleTank {
         super();
         this.bulletDamage = TankConfig.GREEN_TANK_DAMAGE;
     }
+
     setBody(): void {
         this.body = new PIXI.Graphics();
         this.body.beginFill(TankConfig.GREEN_TANK);

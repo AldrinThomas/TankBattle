@@ -18,6 +18,7 @@ export default class BattleTank implements IGameTank {
         this.delta = 0;
         this.bulletDamage = 0;
     }
+
     setBody(): void {
 
     }

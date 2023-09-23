@@ -8,11 +8,13 @@ export default class BlueTank extends BattleTank {
         super();
         this.bulletDamage = TankConfig.BLUE_TANK_DAMAGE;
     }
+
     setBody(): void {
         this.body = new PIXI.Graphics();
         this.body.beginFill(TankConfig.BLUE_TANK);
         this.body.drawRect(0, 0, Utils.CELL_SIZE, Utils.CELL_SIZE);
     }
+
     fire(): void {
         super.fire();
         setTimeout(() => {

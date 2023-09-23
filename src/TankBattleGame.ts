@@ -106,7 +106,6 @@ export default class TankBattleGame extends PIXI.Container {
             }
         }
         let collision = this.mapArea.checkTankCollisionWithObjects(this.currentTank);
-        // console.log("tank collision ", collision)
 
         if (collision < 3) {
             this.currentTank.update(delta);
@@ -115,5 +114,4 @@ export default class TankBattleGame extends PIXI.Container {
         if (collision != 0)
             this.currentTank.applyBreak();//slowing down while squeezing through cell
     }
-
 }

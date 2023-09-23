@@ -5,5 +5,4 @@ export default interface IGameBullet {
     damage: number;
     velocity: number;
     update(delta: number): void;
-
 }

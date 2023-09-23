@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "module": "ESNext",
+      "outDir": "./local",
+      "strict": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "baseUrl": "./",
+      "paths": {
+        "@assets/*": ["./src/ts/assets"]
+      }
+    },
+    "include": ["src/**/*.ts"]
+  }

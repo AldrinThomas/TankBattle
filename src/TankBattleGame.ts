@@ -6,8 +6,9 @@ import RedTank from './tanks/RedTank';
 import BlueTank from './tanks/BlueTank';
 import GreenTank from './tanks/GreenTank';
 import EventManager from './eventManager/eventManger';
+import IGameMap from './interfaces/IGameMap';
 export default class TankBattleGame extends PIXI.Container {
-    mapArea: TankBattleMap;
+    mapArea: IGameMap;
     currentTank: IGameTank;
     bulletArray: IGameBullet[];
     tankList: IGameTank[];
@@ -22,7 +23,7 @@ export default class TankBattleGame extends PIXI.Container {
 
         this.tankList = [new RedTank(), new BlueTank(), new GreenTank()];
         this.mapArea = new TankBattleMap();
-        this.addChild(this.mapArea);
+        this.addChild(this.mapArea.body);
 
         this._switchTank();
         this.mapArea.assignRandomCellForTank(this.currentTank);

@@ -8,14 +8,16 @@ import IGameBullet from '../interfaces/IGameBullet';
 import IGameCell from '../interfaces/IGameCell';
 import TankBattleBoundary from './TankBattleBoundary';
 import EventManager from '../eventManager/eventManger';
+import IGameMap from 'src/interfaces/IGameMap';
 
-export default class TankBattleMap extends PIXI.Container {
+export default class TankBattleMap implements IGameMap {
 
+    body: PIXI.Container;
     assignedCells: IGameCell[];
     unassignedCells: TankBattleEmptyCell[];
 
     constructor() {
-        super();
+        this.body = new PIXI.Container();
         this.assignedCells = [];
         this.unassignedCells = [];
         this._createCellBlocksForMap();
@@ -50,7 +52,7 @@ export default class TankBattleMap extends PIXI.Container {
 
     private _removeCell(cell: IGameCell) {
         this.assignedCells.splice(this.assignedCells.indexOf(cell), 1);
-        this.removeChild(cell.body);
+        this.body.removeChild(cell.body);
     }
 
     private _createCellBlocksForMap() {
@@ -61,7 +63,7 @@ export default class TankBattleMap extends PIXI.Container {
             for (let col: number = 0; col < Utils.CELL_COUNT; col++) {
                 let cellItem: TankBattleEmptyCell = new TankBattleEmptyCell();
                 cellItem.body.position.set((col * Utils.CELL_SIZE + 1) + Utils.BOUNDARY_SIZE, (row * Utils.CELL_SIZE) + Utils.BOUNDARY_SIZE + 1);
-                this.addChild(cellItem.body);
+                this.body.addChild(cellItem.body);
                 this.unassignedCells.push(cellItem);
             }
         }
@@ -76,7 +78,7 @@ export default class TankBattleMap extends PIXI.Container {
         for (let i = 0; i < 4; i++) {
             let boundary: IGameCell = new TankBattleBoundary();
             boundary.body.beginFill(0xff0000);
-            this.addChild(boundary.body);
+            this.body.addChild(boundary.body);
             boundaries.push(boundary);
         }
         boundaries[0].body.drawRect(0, 0, Utils.SCREEN_HEIGHT, Utils.BOUNDARY_SIZE);
@@ -93,7 +95,7 @@ export default class TankBattleMap extends PIXI.Container {
         for (let i: number = 0; i < Utils.WALL_COUNT; i++) {
             const wall = new TankBattleWall();
             const selectedId: number = this._selectEmptyCell(wall.body);
-            this.addChild(wall.body);
+            this.body.addChild(wall.body);
             this.assignedCells.push(wall);
         }
     }
@@ -102,7 +104,7 @@ export default class TankBattleMap extends PIXI.Container {
         for (let i: number = 0; i < Utils.HAY_COUNT; i++) {
             const hay = new TankBattleHay();
             const selectedId: number = this._selectEmptyCell(hay.body);
-            this.addChild(hay.body);
+            this.body.addChild(hay.body);
             this.assignedCells.push(hay);
         }
     }

@@ -2,7 +2,7 @@ import { Graphics } from "pixi.js";
 import Utils from "../Utils/Utils";
 import IGameBullet from "src/interfaces/IGameBullet";
 
-export default class TankbattleBullet implements IGameBullet {
+export default class TankBattleBullet implements IGameBullet {
     direction: string;
     body: Graphics;
     damage: number;

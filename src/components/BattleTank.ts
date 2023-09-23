@@ -1,7 +1,7 @@
 import Utils from '../Utils/Utils';
 import IGameTank from '../interfaces/IGameTank';
 import * as PIXI from 'pixi.js';
-import TankbattleBullet from './TankBattleBullet';
+import TankBattleBullet from './TankBattleBullet';
 import IGameBullet from 'src/interfaces/IGameBullet';
 import EventManager from '../eventManager/eventManger';
 
@@ -31,7 +31,7 @@ export default class BattleTank implements IGameTank {
 
     fire(): void {
         const startPos: PIXI.Point = new PIXI.Point(this.body.position.x, this.body.position.y);
-        const bullet: IGameBullet = new TankbattleBullet(this.direction, this.bulletDamage);
+        const bullet: IGameBullet = new TankBattleBullet(this.direction, this.bulletDamage);
         bullet.body.position.set(startPos.x, startPos.y);
 
         switch (this.direction) {

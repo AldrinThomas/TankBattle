@@ -8,7 +8,6 @@ export default class TankBattleBoundary implements IGameCell {
     body: Graphics;
     constructor() {
         this.type = "Boundary";
-        this.health = Utils.HAY_HEALTH;
         this.body = new Graphics();
     }
     updateHealth(damage: number): void {

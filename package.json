@@ -11,7 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "@types/babel__core": "^7.20.2",
-    "@types/mocha": "^10.0.1",
     "@types/pixi.js": "^5.0.0",
     "pixi.js": "^7.2.4",
     "ts-loader": "^9.4.4",
@@ -22,6 +21,7 @@
   },
   "dependencies": {
     "@pixi/core": "^7.2.4",
+    "@types/css-font-loading-module": "^0.0.9",
     "html-webpack-plugin": "^5.5.3"
   }
 }

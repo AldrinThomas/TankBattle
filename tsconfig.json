@@ -1,15 +1,31 @@
 {
-    "compilerOptions": {
-      "target": "ES5",
-      "module": "ESNext",
-      "outDir": "./local",
-      "strict": true,
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "baseUrl": "./",
-      "paths": {
-        "@assets/*": ["./src/ts/assets"]
-      }
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext", /* Specify what module code is generated. */
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@pixi/core": [
+        "node_modules/@pixi/core"
+      ]
     },
-    "include": ["src/**/*.ts"]
-  }
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "babel__core"
+    ],
+    "importHelpers": true, /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
+    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
+    "strict": true, /* Enable all strict type-checking options. */
+    // "outDir": "./local",
+    "skipDefaultLibCheck": true,
+    "strictNullChecks": false,
+    "skipLibCheck": false /* Skip type checking all .d.ts files. */
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  // "exclude": ["node_modules"],
+}
